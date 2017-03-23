@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--EXPORTED BY TOOL, DON'T MODIFY IT!-->
+<agents version="1" signature="2632253247">
+  <agent type="BTBase" base="behaviac::Agent" signature="271115113">
+    <properties>
+      <property name="p_IsCanMove" type="bool" member="false" static="false" defaultvalue="false" />
+      <property name="p_IsMoveing" type="bool" member="false" static="false" defaultvalue="false" />
+    </properties>
+  </agent>
+</agents>

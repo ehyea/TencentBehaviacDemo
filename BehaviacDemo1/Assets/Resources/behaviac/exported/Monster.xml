@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--EXPORTED BY TOOL, DON'T MODIFY IT!-->
+<!--Source File: Monster.xml-->
+<behavior name="Monster" agenttype="BTBase" version="5">
+  <node class="DecoratorLoop" id="0">
+    <property Count="const int -1" />
+    <property DecorateWhenChildEnds="true" />
+    <property DoneWithinFrame="false" />
+    <node class="SelectorLoop" id="1">
+      <node class="WithPrecondition" id="2">
+        <node class="And" id="9">
+          <node class="Condition" id="3">
+            <property Operator="Equal" />
+            <property Opl="bool Self.BTBase::p_IsCanMove" />
+            <property Opr="const bool true" />
+          </node>
+          <node class="Condition" id="10">
+            <property Operator="Equal" />
+            <property Opl="bool Self.BTBase::p_IsMoveing" />
+            <property Opr="const bool false" />
+          </node>
+        </node>
+        <node class="Sequence" id="4">
+          <node class="Assignment" id="11">
+            <property CastRight="false" />
+            <property Opl="bool Self.BTBase::p_IsMoveing" />
+            <property Opr="const bool true" />
+          </node>
+          <node class="Action" id="5">
+            <property Method="Self.BTBase::GetTargetPos(10)" />
+            <property ResultOption="BT_SUCCESS" />
+          </node>
+          <node class="Action" id="6">
+            <property Method="Self.BTBase::SetAnimatorBoolParameter(&quot;Move&quot;,true)" />
+            <property ResultOption="BT_SUCCESS" />
+          </node>
+          <node class="Action" id="7">
+            <property Method="Self.BTBase::MoveToTarget(3)" />
+            <property ResultOption="BT_SUCCESS" />
+          </node>
+        </node>
+      </node>
+      <node class="WithPrecondition" id="8">
+        <node class="Condition" id="12">
+          <property Operator="Equal" />
+          <property Opl="bool Self.BTBase::p_IsMoveing" />
+          <property Opr="const bool true" />
+        </node>
+        <node class="IfElse" id="14">
+          <node class="Condition" id="15">
+            <property Operator="Equal" />
+            <property Opl="Self.BTBase::IsNearTargetPos()" />
+            <property Opr="const bool true" />
+          </node>
+          <node class="Sequence" id="18">
+            <node class="Action" id="19">
+              <property Method="Self.BTBase::SetAnimatorBoolParameter(&quot;Move&quot;,false)" />
+              <property ResultOption="BT_SUCCESS" />
+            </node>
+            <node class="Wait" id="22">
+              <property Time="const float 1000" />
+            </node>
+            <node class="Assignment" id="20">
+              <property CastRight="false" />
+              <property Opl="bool Self.BTBase::p_IsMoveing" />
+              <property Opr="const bool false" />
+            </node>
+          </node>
+          <node class="Noop" id="16" />
+        </node>
+      </node>
+    </node>
+  </node>
+</behavior>
